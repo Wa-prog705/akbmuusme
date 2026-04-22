@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -187,11 +188,11 @@ function calcJoshi(courseType, minutes, opTotal, shimei, enchoCount) {
 }
 
 function parseYoyaku(text) {
-  const blocks = text.split(/(?=■お名前：)/);
+  const blocks = text.split(/(?=■?お名前：)/);
   const customers = [];
   for (const block of blocks) {
-    if (!block.includes('■お名前：')) continue;
-    const nameM = block.match(/■お名前：(.+?)(\d{4})様/);
+    if (!block.includes('お名前：')) continue;
+    const nameM = block.match(/■?お名前：(.+?)(\d{4})様/);
     if (!nameM) continue;
     const name = nameM[1].trim();
     const custNum = nameM[2];
